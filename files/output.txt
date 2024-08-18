@@ -1,0 +1,2 @@
+Data read from file input.txt: Hello, This is my nodejs project.. 
+Date Created - Sun Aug 18 2024 16:50:35 GMT+0530 (India Standard Time)
