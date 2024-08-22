@@ -1,8 +1,16 @@
 const http = require("http");
 const fs = require("fs");
 
-const html = fs.readFileSync("./index.html", "utf-8");
-const json = fs.readFileSync("./data/todo.json", "utf-8");
+const html = fs.readFileSync("./templates/index.html", "utf-8");
+const todos = fs.readFileSync("./data/todo.json", "utf-8");
+const todoList = fs.readFileSync("./templates/todos-list.html", "utf-8");
+const todosJson = JSON.parse(todos);
+const todosHtml = todosJson.map((todo) => {
+  let output = todoList.replace("{{ID}}", todo.id);
+  output = output.replace("{{Title}}", todo.title);
+  output = output.replace("{{Completed}}", todo.completed);
+  return output;
+});
 const server = http.createServer((req, res) => {
   const path = req.url;
   if (path == "/" || path.toLowerCase() == "/home") {
@@ -25,10 +33,9 @@ const server = http.createServer((req, res) => {
     res.end(html.replace("{{Content}}", "You are in Contact page"));
   } else if (path.toLowerCase() == "/todos") {
     res.writeHead(200, {
-      "Content-Type": "application/json",
-      "my-custom-header": "Hello World!",
+      "Content-Type": "text/html",
     });
-    res.end(json);
+    res.end(html.replace("{{Content}}", todosHtml.join("")));
   } else {
     res.writeHead(400, {
       "Content-Type": "text/html",
