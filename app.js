@@ -1,17 +1,13 @@
 const http = require("http");
 const fs = require("fs");
 const url = require("url");
+const replaceHtml = require("./modules/replaceHtml");
 
 const html = fs.readFileSync("./templates/index.html", "utf-8");
 const todos = fs.readFileSync("./data/todo.json", "utf-8");
 const todoList = fs.readFileSync("./templates/todos-list.html", "utf-8");
 const todosJson = JSON.parse(todos);
-const todosHtml = todosJson.map((todo) => {
-  let output = todoList.replaceAll("{{ID}}", todo.id);
-  output = output.replace("{{Title}}", todo.title);
-  output = output.replace("{{Completed}}", todo.completed);
-  return output;
-});
+
 const server = http.createServer((req, res) => {
   const { query, pathname: path } = url.parse(req.url, true);
   if (path == "/" || path.toLowerCase() == "/home") {
@@ -44,6 +40,9 @@ const server = http.createServer((req, res) => {
         )
       );
     } else {
+      const todosHtml = todosJson.map((todo) => {
+        return replaceHtml(todoList, todo);
+      });
       res.end(html.replace("{{Content}}", todosHtml.join("")));
     }
   } else {
