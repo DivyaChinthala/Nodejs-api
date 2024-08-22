@@ -1,18 +1,19 @@
 const http = require("http");
 const fs = require("fs");
+const url = require("url");
 
 const html = fs.readFileSync("./templates/index.html", "utf-8");
 const todos = fs.readFileSync("./data/todo.json", "utf-8");
 const todoList = fs.readFileSync("./templates/todos-list.html", "utf-8");
 const todosJson = JSON.parse(todos);
 const todosHtml = todosJson.map((todo) => {
-  let output = todoList.replace("{{ID}}", todo.id);
+  let output = todoList.replaceAll("{{ID}}", todo.id);
   output = output.replace("{{Title}}", todo.title);
   output = output.replace("{{Completed}}", todo.completed);
   return output;
 });
 const server = http.createServer((req, res) => {
-  const path = req.url;
+  const { query, pathname: path } = url.parse(req.url, true);
   if (path == "/" || path.toLowerCase() == "/home") {
     res.writeHead(200, {
       "Content-Type": "text/html",
@@ -35,7 +36,16 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, {
       "Content-Type": "text/html",
     });
-    res.end(html.replace("{{Content}}", todosHtml.join("")));
+    if (query.id) {
+      res.end(
+        html.replace(
+          "{{Content}}",
+          "This is the Single Todo View page - " + query.id
+        )
+      );
+    } else {
+      res.end(html.replace("{{Content}}", todosHtml.join("")));
+    }
   } else {
     res.writeHead(400, {
       "Content-Type": "text/html",
