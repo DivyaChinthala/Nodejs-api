@@ -2,6 +2,7 @@ const http = require("http");
 const fs = require("fs");
 
 const html = fs.readFileSync("./index.html", "utf-8");
+const json = fs.readFileSync("./data/todo.json", "utf-8");
 const server = http.createServer((req, res) => {
   const path = req.url;
   if (path == "/" || path.toLowerCase() == "/home") {
@@ -22,6 +23,12 @@ const server = http.createServer((req, res) => {
       "my-custom-header": "Hello World!",
     });
     res.end(html.replace("{{Content}}", "You are in Contact page"));
+  } else if (path.toLowerCase() == "/todos") {
+    res.writeHead(200, {
+      "Content-Type": "application/json",
+      "my-custom-header": "Hello World!",
+    });
+    res.end(json);
   } else {
     res.writeHead(400, {
       "Content-Type": "text/html",
