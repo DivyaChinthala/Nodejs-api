@@ -45,6 +45,25 @@ const server = http.createServer((req, res) => {
       });
       res.end(html.replace("{{Content}}", todosHtml.join("")));
     }
+  } else if (path.toLowerCase() == "/write-file") {
+    const wr = fs.createWriteStream("./files/large-file.txt");
+    const rs = fs.readFileSync("./files/append.txt");
+    for (let i = 0; i <= 100000; i++) {
+      wr.write("\r\n");
+      wr.write(rs);
+    }
+    res.end("File Written Successfully");
+  } else if (path.toLowerCase() == "/read-file") {
+    const readStream = fs.createReadStream("./files/large-file.txt");
+    readStream.on("data", (chunk) => {
+      res.write(chunk);
+    });
+    readStream.on("error", (error) => {
+      res.end(error.message || "Something went wrong");
+    });
+    readStream.on("end", () => {
+      res.end();
+    });
   } else {
     res.writeHead(400, {
       "Content-Type": "text/html",
