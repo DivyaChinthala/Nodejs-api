@@ -64,6 +64,9 @@ const server = http.createServer((req, res) => {
     readStream.on("end", () => {
       res.end();
     });
+  } else if (path.toLowerCase() == "/read-file-using-pipe") {
+    const readStream = fs.createReadStream("./files/large-file.txt");
+    readStream.pipe(res);
   } else {
     res.writeHead(400, {
       "Content-Type": "text/html",
