@@ -2,6 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const url = require("url");
 const replaceHtml = require("./modules/replaceHtml");
+const eventLoop = require("./modules/event-loop");
 
 const html = fs.readFileSync("./templates/index.html", "utf-8");
 const todos = fs.readFileSync("./data/todo.json", "utf-8");
@@ -67,6 +68,9 @@ const server = http.createServer((req, res) => {
   } else if (path.toLowerCase() == "/read-file-using-pipe") {
     const readStream = fs.createReadStream("./files/large-file.txt");
     readStream.pipe(res);
+  } else if (path.toLowerCase() == "/event-loop") {
+    eventLoop();
+    res.end("Event Loop Practice");
   } else {
     res.writeHead(400, {
       "Content-Type": "text/html",
