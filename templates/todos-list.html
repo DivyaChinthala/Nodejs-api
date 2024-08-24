@@ -1,0 +1,32 @@
+<div class="todo-item">
+  <div>
+    <div style="display: flex; align-items: center">
+      <strong>Id:</strong>
+      <p>{{ID}}</p>
+    </div>
+    <div style="display: flex; align-items: center">
+      <strong>Title:</strong>
+      <p>{{Title}}</p>
+    </div>
+    <div style="display: flex; align-items: center">
+      <strong>Task Completed:</strong>
+      <p>{{Completed}}</p>
+    </div>
+  </div>
+  <a href="/todos?id={{ID}}">
+    <button
+      style="
+        padding: 8px;
+        border: none;
+        background-color: tomato;
+        color: white;
+        border-radius: 5px;
+        margin-top: 5px;
+        margin-left: auto;
+        cursor: pointer;
+      "
+    >
+      View
+    </button></a
+  >
+</div>
