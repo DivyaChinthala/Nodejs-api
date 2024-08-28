@@ -5,6 +5,12 @@ const fs = require("fs");
 const movies = JSON.parse(fs.readFileSync("./movies.json", "utf-8"));
 const port = 9000;
 app.use(express.json());
+
+const logger = (req, res, next) => {
+  console.log("Custom Middleware Code");
+  next();
+};
+
 app.listen(port, () => {
   console.log("Server started listening....");
 });
@@ -17,6 +23,8 @@ app.get("/movies", (req, res) => {
     },
   });
 });
+
+app.use(logger);
 
 app.post("/movies", (req, res) => {
   const data = req.body;
