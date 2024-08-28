@@ -1,10 +1,13 @@
 const express = require("express");
 const app = express();
 const fs = require("fs");
+const morgan = require("morgan");
 
 const movies = JSON.parse(fs.readFileSync("./movies.json", "utf-8"));
 const port = 9000;
+
 app.use(express.json());
+app.use(morgan("dev"));
 
 const logger = (req, res, next) => {
   console.log("Custom Middleware Code");
