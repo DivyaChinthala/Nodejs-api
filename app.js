@@ -5,6 +5,7 @@ const moviesRouter = require("./Routes/moviesRouter");
 
 const port = 9000;
 
+app.use(express.static("./public"));
 app.use(express.json());
 app.use(morgan("dev"));
 
