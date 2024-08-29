@@ -1,13 +1,18 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+
 const moviesRouter = require("./Routes/moviesRouter");
 
-const port = 9000;
+const port = process.env.PORT || 9000;
 
 app.use(express.static("./public"));
 app.use(express.json());
-app.use(morgan("dev"));
+if (process.env.NODE_ENV == "dev") {
+  app.use(morgan("dev"));
+}
 
 const logger = (req, res, next) => {
   console.log("Custom Middleware Code");
