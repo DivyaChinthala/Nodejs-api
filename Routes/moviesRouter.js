@@ -1,12 +1,13 @@
 const express = require("express");
 const moviesController = require("../Controllers/moviesController");
+const validateMovie = require("../Middlewares/validateMovie");
 
 const moviesRouter = express.Router();
 
 moviesRouter
   .route("/")
   .get(moviesController.fetchMovies)
-  .post(moviesController.createMovie);
+  .post(validateMovie, moviesController.createMovie);
 
 moviesRouter
   .route("/:id")
