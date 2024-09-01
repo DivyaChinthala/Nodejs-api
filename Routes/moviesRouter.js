@@ -7,7 +7,7 @@ const moviesRouter = express.Router();
 moviesRouter
   .route("/")
   .get(moviesController.fetchMovies)
-  .post(validateMovie, moviesController.createMovie);
+  .post(moviesController.createMovie);
 
 moviesRouter
   .route("/:id")
