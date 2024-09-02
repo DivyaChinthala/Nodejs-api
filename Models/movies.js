@@ -15,6 +15,26 @@ const schema = new mongoose.Schema({
     type: Number,
     default: 1.0,
   },
+  totalRatings: {
+    type: Number,
+  },
+  geners: {
+    type: [String],
+    required: [true, "Geners is required"],
+  },
+  actors: {
+    type: [String],
+    required: [true, "Actors is required"],
+  },
+  directors: {
+    type: [String],
+    required: [true, "Directors is required"],
+  },
+  releaseYear: {
+    type: Number,
+    required: [true, "Release Year is required"],
+  },
+  ticketPrice: Number,
 });
 const Movie = mongoose.model("Movie", schema);
 

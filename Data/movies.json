@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Inception",
+    "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+    "duration": 148,
+    "rating": 4.8,
+    "totalRatings": 9800000,
+    "geners": ["Action", "Sci-Fi", "Thriller"],
+    "actors": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
+    "directors": ["Christopher Nolan"],
+    "releaseYear": 2010,
+    "ticketPrice": 12.99
+  },
+  {
+    "name": "The Godfather",
+    "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+    "duration": 175,
+    "rating": 4.9,
+    "totalRatings": 1500000,
+    "geners": ["Crime", "Drama"],
+    "actors": ["Marlon Brando", "Al Pacino", "James Caan"],
+    "directors": ["Francis Ford Coppola"],
+    "releaseYear": 1972,
+    "ticketPrice": 10.0
+  },
+  {
+    "name": "The Dark Knight",
+    "description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
+    "duration": 152,
+    "rating": 4.9,
+    "totalRatings": 12000000,
+    "geners": ["Action", "Crime", "Drama"],
+    "actors": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+    "directors": ["Christopher Nolan"],
+    "releaseYear": 2008,
+    "ticketPrice": 11.5
+  },
+  {
+    "name": "Interstellar",
+    "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "duration": 169,
+    "rating": 4.7,
+    "totalRatings": 13000000,
+    "geners": ["Adventure", "Drama", "Sci-Fi"],
+    "actors": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
+    "directors": ["Christopher Nolan"],
+    "releaseYear": 2014,
+    "ticketPrice": 13.5
+  },
+  {
+    "name": "Parasite",
+    "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+    "duration": 132,
+    "rating": 4.6,
+    "totalRatings": 890000,
+    "geners": ["Comedy", "Drama", "Thriller"],
+    "actors": ["Kang-ho Song", "Sun-kyun Lee", "Yeo-jeong Jo"],
+    "directors": ["Bong Joon Ho"],
+    "releaseYear": 2019,
+    "ticketPrice": 9.5
+  },
+  {
+    "name": "Avengers: Endgame",
+    "description": "After the devastating events of Avengers: Infinity War, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
+    "duration": 181,
+    "rating": 4.5,
+    "totalRatings": 19000000,
+    "geners": ["Action", "Adventure", "Drama"],
+    "actors": ["Robert Downey Jr.", "Chris Evans", "Mark Ruffalo"],
+    "directors": ["Anthony Russo", "Joe Russo"],
+    "releaseYear": 2019,
+    "ticketPrice": 14.0
+  },
+  {
+    "name": "The Shawshank Redemption",
+    "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    "duration": 142,
+    "rating": 4.9,
+    "totalRatings": 2200000,
+    "geners": ["Drama"],
+    "actors": ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
+    "directors": ["Frank Darabont"],
+    "releaseYear": 1994,
+    "ticketPrice": 8.0
+  },
+  {
+    "name": "Pulp Fiction",
+    "description": "The lives of two mob hitmen, a boxer, a gangster, and his wife intertwine in four tales of violence and redemption.",
+    "duration": 154,
+    "rating": 4.7,
+    "totalRatings": 1700000,
+    "geners": ["Crime", "Drama"],
+    "actors": ["John Travolta", "Uma Thurman", "Samuel L. Jackson"],
+    "directors": ["Quentin Tarantino"],
+    "releaseYear": 1994,
+    "ticketPrice": 7.5
+  }
+]
